@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 
 const protectedRoutes = ['/', '/settings']
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const accessToken = request.cookies.get('access_token')
   const isProtectedRoute = protectedRoutes.includes(request.nextUrl.pathname)
 
