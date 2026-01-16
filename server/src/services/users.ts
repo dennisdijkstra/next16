@@ -1,4 +1,4 @@
-import prisma from '@/prismaClient.js'
+import { prisma } from '@/prismaClient.js'
 import { hashPassword } from '@/services/auth.js'
 
 export const createUser = async (email: string, password: string) => {

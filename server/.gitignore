@@ -3,6 +3,7 @@
 
 # production
 /dist
+/generated/prisma
 
 # misc
 .DS_Store

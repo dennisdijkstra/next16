@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express'
-import prisma from '@/prismaClient.js'
+import { prisma } from '@/prismaClient.js'
 import redis from '@/redisClient.js'
 import { getUserByIdOrEmail } from '@/services/users.js'
 
