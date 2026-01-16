@@ -18,7 +18,7 @@ export const updateUser: RequestHandler = async (req, res) => {
   const { firstName, lastName } = req.body
 
   const user = await prisma.user.update({
-    where: { id: parseInt(id)  },
+    where: { id: parseInt(id as string)  },
     data: { firstName, lastName },
     select: {
       id: true,
@@ -35,7 +35,7 @@ export const deleteUser: RequestHandler = async (req, res) => {
   const { id } = req.params
 
   const deletedUser = await prisma.user.delete({
-    where: { id: parseInt(id)  },
+    where: { id: parseInt(id as string)  },
     select: {
       id: true,
       email: true,
