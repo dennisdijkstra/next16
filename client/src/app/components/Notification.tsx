@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback, ForwardRefExoticComponent } from 'react'
+import { useEffect, useState, useCallback, useRef, ForwardRefExoticComponent } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { useNotificationsStore } from '@/store/notificationsStore'
 import { WarningCircle, CheckCircle, XCircle, X, IconProps } from '@phosphor-icons/react'
@@ -24,7 +24,8 @@ type Icons = {
 }
 
 const Notification = ({ notification }: NotificationProps) => {
-  const [shouldShow, setShouldShow] = useState(false)
+  const nodeRef = useRef(null)
+  const [shouldShow, setShouldShow] = useState(true)
   const { id, type, message, hasAutoClose = true } = notification
   const removeNotification = useNotificationsStore((state) => state.removeNotification)
 
@@ -49,10 +50,6 @@ const Notification = ({ notification }: NotificationProps) => {
   }, [removeNotification])
 
   useEffect(() => {
-    setShouldShow(true)
-  }, [])
-
-  useEffect(() => {
     if (! hasAutoClose) {
       return
     }
@@ -68,9 +65,14 @@ const Notification = ({ notification }: NotificationProps) => {
 
   return (
     <CSSTransition
+      nodeRef={nodeRef}
       in={shouldShow}
+      appear={true}
       timeout={300}
       classNames={{
+        appear: 'translate-x-full',
+        appearActive: 'translate-x-px transition duration-300',
+        appearDone: 'translate-x-px',
         enter: 'translate-x-full',
         enterActive: 'translate-x-px transition duration-300',
         enterDone: 'translate-x-px',
@@ -79,6 +81,7 @@ const Notification = ({ notification }: NotificationProps) => {
       }}
     >
       <div
+        ref={nodeRef}
         className={classNames(
           'relative mb-2 last:mb-0',
           'h-16 w-[400px] px-12',
