@@ -10,7 +10,7 @@ import { useAuthStore } from '@/store/authStore'
 import { capitalize } from '@/utils'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRightIcon } from '@phosphor-icons/react'
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -86,7 +86,7 @@ const Page = () => {
           {error && <p className="text-sm text-red-600 absolute bottom-38">{capitalize(error)}</p>}
           <Button type='submit' className='w-full mb-4' isDisabled={isLoading}>
             Login
-            <ArrowRight size={24} weight="bold" className="ml-1" />
+            <ArrowRightIcon size={24} weight="bold" className="ml-1" />
           </Button>
           <div className="flex flex-col float-right">
             <Link href="/signup" className="text-right underline">Sign up</Link>

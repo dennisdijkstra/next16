@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback, useRef, ForwardRefExoticComponent } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { useNotificationsStore } from '@/store/notificationsStore'
-import { WarningCircle, CheckCircle, XCircle, X, IconProps } from '@phosphor-icons/react'
+import { WarningCircleIcon, CheckCircleIcon, XCircleIcon, XIcon, IconProps } from '@phosphor-icons/react'
 import { classNames } from '@/utils/index'
 
 type Notification = {
@@ -30,9 +30,9 @@ const Notification = ({ notification }: NotificationProps) => {
   const removeNotification = useNotificationsStore((state) => state.removeNotification)
 
   const icons: Icons = {
-    success: CheckCircle,
-    error: XCircle,
-    warning: WarningCircle,
+    success: CheckCircleIcon,
+    error: XCircleIcon,
+    warning: WarningCircleIcon,
   }
 
   const classes = {
@@ -93,7 +93,7 @@ const Notification = ({ notification }: NotificationProps) => {
         <Icon size={24} weight="bold" className="absolute top-1/2 -translate-y-1/2 left-4" />
         <p>{message}</p>
         <button onClick={() => close(id)} className="absolute top-1/2 -translate-y-1/2 right-4">
-          <X size={16} weight="bold" />
+          <XIcon size={16} weight="bold" />
         </button>
       </div>
     </CSSTransition>

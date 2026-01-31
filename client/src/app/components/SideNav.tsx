@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Logo from '@/components/Logo'
 import SideNavLink from '@/components/SideNavLink'
-import { CaretRight } from '@phosphor-icons/react'
+import { CaretRightIcon } from '@phosphor-icons/react'
 import { classNames } from '@/utils/index'
 
 const SideNav = () => {
@@ -30,7 +30,7 @@ const SideNav = () => {
         onClick={handleClick}
         className="absolute flex items-center justify-center top-1/2 -translate-y-1/2 h-7 w-7 bg-gray-900 rounded-full -right-2.5"
       >
-        <CaretRight size={18} weight="bold" className={isOpen ? 'rotate-180' : ''} />
+        <CaretRightIcon size={18} weight="bold" className={isOpen ? 'rotate-180' : ''} />
       </button>
     </div>
   )

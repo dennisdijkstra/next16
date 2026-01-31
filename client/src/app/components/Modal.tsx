@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect, useRef, MouseEvent } from 'react'
 import { createPortal } from 'react-dom'
-import { X } from '@phosphor-icons/react'
+import { XIcon } from '@phosphor-icons/react'
 import Button from '@/components/Button'
 import gsap from 'gsap'
 
@@ -61,7 +61,7 @@ export default function Modal({
           <div className="relative w-150 h-100 z-20" ref={modalRef}>
             <div className="w-full h-full px-10 pt-10 pb-27 rounded-md bg-white">
               <button className="absolute top-5 right-5" onClick={onClose}>
-                <X size={24} weight="bold" />
+                <XIcon size={24} weight="bold" />
               </button>
               {title && <h1 className="text-3xl text-center font-bold">{title}</h1>}
               <div className="mt-10">{children}</div>

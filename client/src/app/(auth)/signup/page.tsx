@@ -9,7 +9,7 @@ import { register as fetcher } from '@/api'
 import { capitalize } from '@/utils'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRightIcon } from '@phosphor-icons/react'
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -93,7 +93,7 @@ const Page = () => {
           {error && <p className="text-sm text-red-600 absolute bottom-31">{capitalize(error)}</p>}
           <Button type='submit' className='w-full mb-4' isDisabled={isLoading}>
             Sign Up
-            <ArrowRight size={24} weight="bold" className="ml-1" />
+            <ArrowRightIcon size={24} weight="bold" className="ml-1" />
           </Button>
           <Link href="/login" className="float-right underline">Log In</Link>
         </form>
